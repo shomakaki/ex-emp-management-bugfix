@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>タイトル</title>
+</head>
+<body>
+<div th:oblect="${form}">
+<span th:field=*{mailaddress}>
+</span>
+
+</div>
+<pre>入力頂いたメールアドレスはすでに登録されています。
+別のメールアドレスでご登録ください。
+</pre>
+<a th:href="@{/toInsert}">管理者登録画面へ</a>
+
+
+</body>
+</html>
