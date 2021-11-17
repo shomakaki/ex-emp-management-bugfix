@@ -21,53 +21,39 @@ public class InsertAdministratorForm {
 	@Pattern(regexp = "^[0-9a-zA-Z]+$",message="パスワードは英数字を含めご入力ください")
 	@Size(min=8,message="パスワードは8文字以上です。")
 	private String password;
-
-	/**
-	 * @return the name
-	 */
+	@Pattern(regexp = "^[0-9a-zA-Z]+$",message="パスワードは英数字を含めご入力ください")
+	@Size(min=8,message="パスワードは8文字以上です。")
+	private String password2;
 	public String getName() {
 		return name;
 	}
-
-	/**
-	 * @param name the name to set
-	 */
 	public void setName(String name) {
 		this.name = name;
 	}
-
-	/**
-	 * @return the mailAddress
-	 */
 	public String getMailAddress() {
 		return mailAddress;
 	}
-
-	/**
-	 * @param mailAddress the mailAddress to set
-	 */
 	public void setMailAddress(String mailAddress) {
 		this.mailAddress = mailAddress;
 	}
-
-	/**
-	 * @return the password
-	 */
 	public String getPassword() {
 		return password;
 	}
-
-	/**
-	 * @param password the password to set
-	 */
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+	public String getPassword2() {
+		return password2;
+	}
+	public void setPassword2(String password2) {
+		this.password2 = password2;
+	}
 	@Override
 	public String toString() {
 		return "InsertAdministratorForm [name=" + name + ", mailAddress=" + mailAddress + ", password=" + password
-				+ "]";
+				+ ", password2=" + password2 + "]";
 	}
+
+	
 	
 }
