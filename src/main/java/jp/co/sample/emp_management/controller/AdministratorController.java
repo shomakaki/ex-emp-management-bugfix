@@ -1,5 +1,8 @@
 package jp.co.sample.emp_management.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.BeanUtils;
@@ -10,6 +13,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import jp.co.sample.emp_management.domain.Administrator;
@@ -77,6 +82,13 @@ public class AdministratorController {
 	public String insert(@Validated InsertAdministratorForm form,BindingResult result) {
 		Administrator administrator = new Administrator();
 		// フォームからドメインにプロパティ値をコピ-
+		if (!(form.getPassword().equals(form.getPassword2()))) {
+			
+		
+			return toInsert();
+			
+		}
+		
 		if(result.hasErrors()) {
 			return toInsert();
 		}
@@ -85,6 +97,37 @@ public class AdministratorController {
 		return "redirect:/";
 	}
 
+//JS部分
+	
+	@ResponseBody
+	@RequestMapping(value = "/check", method = RequestMethod.POST)
+	public Map<String, String> check(String password, String password2) {
+		
+		// 画面にレスポンスするデータをMapオブジェクトとして用意
+		Map<String, String> map = new HashMap<>();
+
+		
+		
+		
+		// レスポンスするMapオブジェクトに、メッセージを格納
+		
+
+		// パスワード一致チェック
+		String validationErrorMessage2 = null;
+		if (password.equals(password2)) {
+			validationErrorMessage2 = "確認用パスワード入力OK!";
+		} else {
+			validationErrorMessage2 = "パスワードが一致していません";
+		}
+
+		// レスポンスするMapオブジェクトに、メッセージを格納
+		map.put("validationErrorMessage2", validationErrorMessage2);
+		
+		System.out.println(password + ":" + password2); // デバッグ用コンソール出力
+		
+		return map;
+	}
+	
 	/////////////////////////////////////////////////////
 	// ユースケース：ログインをする
 	/////////////////////////////////////////////////////

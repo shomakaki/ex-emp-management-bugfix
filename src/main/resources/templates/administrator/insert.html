@@ -79,6 +79,21 @@
 									</div>
 								</div>
 							</div>
+							<div class="form-group">
+								<div class="row">
+									<div class="col-sm-12">
+										<label for="password2">
+											確認用パスワード:
+										</label>
+										<div id="validationErrorMessage2" style="color: red;"></div>
+										<label th:if="${#fields.hasErrors('password')}" th:errors="*{password2}" class="error-messages">
+											パスワードを入力してください
+										</label>
+										<input type="password" name="password2" id="password2" class="form-control" placeholder="password"
+											 th:field="*{password2}" th:errorclass="error-input" value="xxxxxxxx">
+									</div>
+								</div>
+							</div>
 							<!-- 登録ボタン -->
 							<div class="form-group">
 								<div class="row">
@@ -100,6 +115,8 @@
 	<!-- end container -->
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script src="../../static/js/bootstrap.min.js"></script>
+	 <script src="../../static/js/bootstrap.min.js"></script>
+	 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	 <script th:src="@{/js/check-insert.js}"></script>
 </body>
 </html>
