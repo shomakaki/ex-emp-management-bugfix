@@ -21,6 +21,8 @@ public class InsertAdministratorForm {
 	@Pattern(regexp = "^[0-9a-zA-Z]+$",message="パスワードは英数字を含めご入力ください")
 	@Size(min=8,message="パスワードは8文字以上です。")
 	private String password;
+	@Pattern(regexp = "^[0-9a-zA-Z]+$",message="パスワードは英数字を含めご入力ください")
+	@Size(min=8,message="パスワードは8文字以上です。")
 	private String password2;
 	public String getName() {
 		return name;
@@ -52,8 +54,6 @@ public class InsertAdministratorForm {
 				+ ", password2=" + password2 + "]";
 	}
 
-	/**
-	 * @return the name
-	 */
+	
 	
 }
