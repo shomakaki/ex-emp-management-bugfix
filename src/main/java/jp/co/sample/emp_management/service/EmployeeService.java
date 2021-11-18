@@ -44,6 +44,11 @@ public class EmployeeService {
 		return employee;
 	}
 	
+	public List<Employee> search(String name) {
+		List<Employee> employeeList = employeeRepository.findByName(name);
+		return employeeList;
+	}
+	
 	/**
 	 * 従業員情報を更新します.
 	 * 
